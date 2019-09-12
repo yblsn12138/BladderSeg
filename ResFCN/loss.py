@@ -128,7 +128,7 @@ def WeightedDiceLoss(inputs,targets):
 
         IoU = intersect / union
 
-        out = out + organIDs[organID] * (one-two*IoU)
+        out = out + organWeights[organID] * (one-two*IoU)
 
     denominator = Variable(torch.cuda.FloatTensor(1).fill_(sum(organWeights)))
 
